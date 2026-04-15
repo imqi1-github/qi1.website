@@ -146,7 +146,7 @@ const websites = [
     <!-- Websites Section -->
     <section class="py-12 px-6">
       <div class="max-w-4xl mx-auto">
-        <h2 class="text-2xl font-medium text-slate-900 mb-8 font-serif text-center">
+        <h2 class="text-2xl font-medium text-slate-900 mb-8 font-serif text-center title">
           我的网站
         </h2>
 
@@ -174,7 +174,7 @@ const websites = [
     <!-- Graduation Project Section -->
     <section class="py-12 px-6">
       <div class="max-w-4xl mx-auto">
-        <h2 class="text-2xl font-medium text-slate-900 mb-8 font-serif text-center">
+        <h2 class="text-2xl font-medium text-slate-900 mb-8 font-serif text-center title2">
           毕业设计展
         </h2>
 
@@ -312,6 +312,17 @@ const websites = [
 .website-card:nth-child(3) { animation-delay: 0.7s; }
 .website-card:nth-child(4) { animation-delay: 0.75s; }
 .website-card:nth-child(5) { animation-delay: 0.8s; }
+
+/**标题动画 */
+.title {
+  animation: fadeInUp 0.6s ease-out backwards;
+  animation-delay: 0.6s;
+}
+
+.title2 {
+  animation: fadeInUp 0.6s ease-out backwards;
+  animation-delay: 0.85s;
+}
 
 /* 毕设卡片动画 */
 .project-card {
