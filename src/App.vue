@@ -5,7 +5,6 @@ import notebookIcon from './assets/notebook.svg'
 import referenceIcon from './assets/reference.svg'
 import staticIcon from './assets/static.svg'
 import statusIcon from './assets/status.png'
-import upyunIcon from './assets/upyun.png'
 import { Icon } from '@iconify/vue'
 
 const heroData = {
@@ -179,7 +178,7 @@ const websites = [
         </h2>
 
         <a
-          href="https://imqi1.com/shot/1005"
+          href="https://imqi1.com/content/shot/1005"
           target="_blank"
           class="project-card group block max-w-md mx-auto"
         >
@@ -229,14 +228,6 @@ const websites = [
             class="hidden sm:block hover:text-slate-600 transition-colors"
           >
             冀ICP备2023007665号
-          </a>
-          <span class="hidden sm:inline text-slate-300">|</span>
-          <a
-            href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"
-            target="_blank"
-            class="hidden sm:block"
-          >
-            <img :src="upyunIcon" alt="又拍云" class="h-4 grayscale transition-all duration-300 hover:grayscale-0">
           </a>
         </div>
       </div>
