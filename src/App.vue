@@ -66,6 +66,21 @@ const websites = [
     icon: statusIcon
   }
 ]
+
+const openSourceLinks = [
+  {
+    name: 'GitHub 仓库',
+    description: '查看源码、提交 Issue、参与贡献',
+    icon: 'lucide:github',
+    url: 'https://github.com/imqi1-github/imqi1-cms'
+  },
+  {
+    name: '文档站',
+    description: '安装部署、使用指南、API 参考',
+    icon: 'lucide:book-open',
+    url: 'https://docs.qi1.website'
+  }
+]
 </script>
 
 <template>
@@ -167,6 +182,40 @@ const websites = [
             <Icon icon="lucide:external-link" class="w-4 h-4 text-slate-400 group-hover:text-slate-600 transition-colors shrink-0" />
           </a>
         </div>
+      </div>
+    </section>
+
+    <!-- Open Source Section -->
+    <section class="py-12 px-6">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl font-medium text-slate-900 mb-8 font-serif text-center title3">
+          开源项目
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <a
+            v-for="link in openSourceLinks"
+            :key="link.name"
+            :href="link.url"
+            target="_blank"
+            class="opensource-card group flex items-center gap-4 p-5 bg-white rounded-xl border border-slate-200/60 shadow-sm hover:shadow-md hover:border-slate-300 transition-all"
+          >
+            <div class="shrink-0 w-12 h-12 rounded-lg bg-slate-50 flex items-center justify-center">
+              <Icon :icon="link.icon" class="w-6 h-6 text-slate-600 group-hover:text-slate-900 transition-colors" />
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-medium text-slate-900 group-hover:text-slate-700 transition-colors">
+                {{ link.name }}
+              </h3>
+              <p class="text-sm text-slate-500 truncate">{{ link.description }}</p>
+            </div>
+            <Icon icon="lucide:external-link" class="w-4 h-4 text-slate-400 group-hover:text-slate-600 transition-colors shrink-0" />
+          </a>
+        </div>
+
+        <p class="mt-6 text-center text-xs text-slate-400">
+          imqi1-cms · 一个简洁优雅的内容管理系统
+        </p>
       </div>
     </section>
 
@@ -314,6 +363,18 @@ const websites = [
   animation: fadeInUp 0.6s ease-out backwards;
   animation-delay: 0.85s;
 }
+
+.title3 {
+  animation: fadeInUp 0.6s ease-out backwards;
+  animation-delay: 0.9s;
+}
+
+/* 开源项目卡片动画 */
+.opensource-card {
+  animation: fadeInUp 0.6s ease-out backwards;
+}
+.opensource-card:nth-child(1) { animation-delay: 0.95s; }
+.opensource-card:nth-child(2) { animation-delay: 1.0s; }
 
 /* 毕设卡片动画 */
 .project-card {
