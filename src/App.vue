@@ -213,7 +213,7 @@ const openSourceLinks = [
           </a>
         </div>
 
-        <p class="mt-6 text-center text-xs text-slate-400">
+        <p class="opensource-text mt-6 text-center text-xs text-slate-400">
           imqi1-cms · 一个简洁优雅的内容管理系统
         </p>
       </div>
@@ -370,11 +370,12 @@ const openSourceLinks = [
 }
 
 /* 开源项目卡片动画 */
-.opensource-card {
+.opensource-card, .opensource-text {
   animation: fadeInUp 0.6s ease-out backwards;
 }
 .opensource-card:nth-child(1) { animation-delay: 0.95s; }
 .opensource-card:nth-child(2) { animation-delay: 1.0s; }
+.opensource-text { animation-delay: 1.05s }
 
 /* 毕设卡片动画 */
 .project-card {
