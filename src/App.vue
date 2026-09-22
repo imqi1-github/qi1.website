@@ -291,13 +291,13 @@ const openSourceLinks = [
             class="flex items-center gap-1.5 hover:text-slate-600 transition-colors"
             :title="`服务状态：${siteLabel}`"
           >
-            <span class="relative flex w-2 h-2">
-              <!-- 故障时加一圈扩散动画，便于一眼注意到 -->
+            <span class="status-indicator relative flex w-2 h-2" aria-hidden="true">
+              <!-- 状态圆点持续向外扩散，接近 Uptime Kuma 的呼吸提示效果 -->
               <span
-                v-if="siteTone === 'down'"
-                class="absolute inline-flex w-full h-full rounded-full bg-red-400 opacity-75 animate-ping"
+                class="status-ripple absolute inset-0 rounded-full"
+                :class="statusDotClass"
               />
-              <span class="relative inline-flex w-2 h-2 rounded-full" :class="statusDotClass" />
+              <span class="status-dot relative inline-flex w-2 h-2 rounded-full" :class="statusDotClass" />
             </span>
             <span>{{ siteLabel }}</span>
           </a>
@@ -418,6 +418,32 @@ const openSourceLinks = [
   }
   50% {
     opacity: 1;
+  }
+}
+
+/* 页脚服务状态呼吸扩散 */
+@keyframes statusRipple {
+  0% {
+    opacity: 0.65;
+    transform: scale(1);
+  }
+  70%,
+  100% {
+    opacity: 0;
+    transform: scale(3.75);
+  }
+}
+
+.status-ripple {
+  animation: statusRipple 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-ripple {
+    animation: none;
+    opacity: 0.3;
+    transform: scale(1.5);
   }
 }
 
