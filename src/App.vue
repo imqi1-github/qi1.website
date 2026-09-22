@@ -2,8 +2,6 @@
 import avatar from './assets/avatar.jpg'
 import imqi1Icon from './assets/imqi1.svg'
 import notebookIcon from './assets/notebook.svg'
-import referenceIcon from './assets/reference.svg'
-import staticIcon from './assets/static.svg'
 import statusIcon from './assets/status.png'
 import { Icon } from '@iconify/vue'
 import { computed } from 'vue'
@@ -64,18 +62,6 @@ const websites = [
     url: 'https://notebook.qi1.website',
     description: '笔记与知识管理',
     icon: notebookIcon
-  },
-  {
-    name: '代码参考',
-    url: 'https://reference.qi1.website',
-    description: '技术文档与参考',
-    icon: referenceIcon
-  },
-  {
-    name: '常用库速查',
-    url: 'https://static.qi1.website',
-    description: '静态资源托管',
-    icon: staticIcon
   },
   {
     name: '监控',
