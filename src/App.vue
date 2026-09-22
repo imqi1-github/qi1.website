@@ -6,6 +6,24 @@ import referenceIcon from './assets/reference.svg'
 import staticIcon from './assets/static.svg'
 import statusIcon from './assets/status.png'
 import { Icon } from '@iconify/vue'
+import { computed } from 'vue'
+import { useSiteStatus } from './composables/useSiteStatus'
+
+/** 页脚实时状态：拉取 status.qi1.website 的聚合结果 */
+const { tone: siteTone, label: siteLabel } = useSiteStatus()
+
+const statusDotClass = computed(() => {
+  switch (siteTone.value) {
+    case 'up':
+      return 'bg-emerald-500'
+    case 'warn':
+      return 'bg-amber-500'
+    case 'down':
+      return 'bg-red-500'
+    default:
+      return 'bg-slate-300'
+  }
+})
 
 const heroData = {
   name: '棋',
@@ -277,6 +295,25 @@ const openSourceLinks = [
             class="hidden sm:block hover:text-slate-600 transition-colors"
           >
             冀ICP备2023007665号
+          </a>
+          <span class="hidden sm:inline text-slate-300">|</span>
+          <!-- 实时服务状态：数据来自 status.qi1.website -->
+          <a
+            href="https://status.qi1.website"
+            target="_blank"
+            rel="noopener"
+            class="flex items-center gap-1.5 hover:text-slate-600 transition-colors"
+            :title="`服务状态：${siteLabel}`"
+          >
+            <span class="relative flex w-2 h-2">
+              <!-- 故障时加一圈扩散动画，便于一眼注意到 -->
+              <span
+                v-if="siteTone === 'down'"
+                class="absolute inline-flex w-full h-full rounded-full bg-red-400 opacity-75 animate-ping"
+              />
+              <span class="relative inline-flex w-2 h-2 rounded-full" :class="statusDotClass" />
+            </span>
+            <span>{{ siteLabel }}</span>
           </a>
         </div>
       </div>
